@@ -6,7 +6,7 @@ import { increment, decrement, removeItem } from "../../features/cartSlice";
 const CartItem = ({ id, name, price, amount, image }) => {
   const dispatch = useDispatch();
   return (
-    <div className="flex items-center pb-2 mb-5 ml-10 border-b-2 border-gray-300">
+    <div className="flex items-center pb-2 mb-2 ml-10 border-b-2 border-gray-300">
       <div className="relative border border-gray-500 rounded-full h-[130px] w-[150px]">
         <Image className="border-red-700 rounded-full " src={image} alt="bread" layout="fill" objectFit="cover" />
       </div>
