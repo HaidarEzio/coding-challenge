@@ -12,8 +12,8 @@ const Products = () => {
       {/* <Contained>Interesing Test</Contained> */}
       <Header className="">Products</Header>
 
-      {productData.map(({ id, name, description, price, image }) => (
-        <Product key={id} name={name} description={description} price={price} image={image} />
+      {productData.map((item) => (
+        <Product key={item.id} id={item.id} {...item} />
       ))}
     </Container>
   );

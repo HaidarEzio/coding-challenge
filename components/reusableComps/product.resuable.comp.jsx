@@ -1,10 +1,12 @@
 import Image from "next/image";
 import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
-
+import { useDispatch } from "react-redux";
 import { ProductContainer, ImageWrapper, button } from "./reusbaleComps.styles";
+import { addToCart } from "../../features/cartSlice";
 
-const Product = ({ name, description, price, image }) => {
+const Product = ({ id, name, description, price, image }) => {
+  const dispatch = useDispatch();
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
@@ -33,7 +35,14 @@ const Product = ({ name, description, price, image }) => {
           <h5 className="pl-2 text-xl font-bold">£{price}</h5>
         </div>
         <div className={button.wrapper}>
-          <button className={button.element}>ADD TO CART</button>
+          <button
+            className={button.element}
+            onClick={() => {
+              dispatch(addToCart({ id }));
+            }}
+          >
+            ADD TO CART
+          </button>
         </div>
       </div>
     </ProductContainer>
