@@ -9,7 +9,6 @@ const Container = tw.div`
     flex
     items-center
     justify-center
-    h-screen
     w-full
     bg-white
 `;
