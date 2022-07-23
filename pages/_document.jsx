@@ -1,4 +1,3 @@
-import Document from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
@@ -8,18 +7,11 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="UTF-8" />
-          <meta property="og:title" content="" />
-          <meta property="og:description" content="" />
-          <meta property="og:image" content="" />
-          <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
-          <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-          {CssBaseline.flush()}
-          <link rel="manifest" href="/site.webmanifest" />
+
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         </Head>
         <body>
           <Main />

@@ -11,7 +11,7 @@ const Container = tw.div`
     justify-center
     h-screen
     w-full
-    bg-green-500
+    bg-white
 `;
 
 export default function Home() {
