@@ -37,10 +37,8 @@ const cartSlice = createSlice({
       cartItem.amount--;
     },
     calculateTotals: (state) => {
-      let amount = 0;
       let total = 0;
       state.cartItems.forEach((item) => {
-        amount += item.amount;
         total += item.amount * item.price;
       });
       state.subtotal = total;
@@ -98,12 +96,16 @@ const cartSlice = createSlice({
     },
     getDiscounts: (state) => {
       if (state.cartItems.length > 0) {
+        let bread = state.cartItems.find((item) => item.id === "1");
         let milk = state.cartItems.find((item) => item.id === "2");
         let butter = state.cartItems.find((item) => item.id === "3");
-
+        //* if there's no bread, no need for a discount
+        if (!bread) {
+          state.discount.bread = 0;
+        }
         //* if butter is one of 2's multiples, add a discount
         //? if butter is less than 2, remove the discount
-        if (butter && butter.amount % 2 === 0) {
+        if (butter && butter.amount % 2 === 0 && bread) {
           let multiplyByDiscount = butter.amount / 2;
           state.discount.bread = multiplyByDiscount * 0.5;
         } else if (butter && butter.amount < 2) {
