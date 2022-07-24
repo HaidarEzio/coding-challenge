@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { ProductContainer, ImageWrapper, button } from "./reusbaleComps.styles";
-import { addToCart, discount } from "../../features/cartSlice";
+import { addToCart, getDiscounts } from "../../features/cartSlice";
 
 const Product = ({ id, name, description, price, image }) => {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const Product = ({ id, name, description, price, image }) => {
             className={button.element}
             onClick={() => {
               dispatch(addToCart({ id }));
-              dispatch(discount({ id }));
+              dispatch(getDiscounts());
             }}
           >
             ADD TO CART

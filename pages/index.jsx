@@ -5,7 +5,7 @@ import tw from "tailwind-styled-components";
 import Cart from "../components/cart.comp";
 import Products from "../components/products.comp";
 import { useSelector, useDispatch } from "react-redux";
-import { calculateTotals } from "../features/cartSlice";
+import { calculateTotals, getDiscounts } from "../features/cartSlice";
 import { useEffect } from "react";
 
 const Container = tw.div`
@@ -19,9 +19,11 @@ const Container = tw.div`
 
 export default function Home() {
   const { cartItems } = useSelector((state) => state.cart);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(calculateTotals());
+    dispatch(getDiscounts());
   }, [cartItems]);
   return (
     <Container>
