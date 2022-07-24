@@ -1,9 +1,10 @@
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { increment, decrement, removeItem } from "../../features/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, decrement, removeItem, discount } from "../../features/cartSlice";
 
 const CartItem = ({ id, name, price, amount, image }) => {
+  const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   return (
     <div className="flex items-center pb-2 mb-2 ml-10 border-b-2 border-gray-300">
@@ -31,6 +32,7 @@ const CartItem = ({ id, name, price, amount, image }) => {
             <AiOutlinePlus
               onClick={() => {
                 dispatch(increment({ id }));
+                dispatch(discount({ id }));
               }}
               size="27px"
               className="bg-white border-2 rounded-full "
