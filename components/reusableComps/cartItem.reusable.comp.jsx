@@ -1,7 +1,7 @@
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement, removeItem, getDiscounts } from "../../features/cartSlice";
+import { increment, decrement, removeItem, getDiscounts, removeDiscounts } from "../../features/cartSlice";
 import { ItemImageWrapper, ItemContainer } from "./reusableComps.styles";
 
 const CartItem = ({ id, name, price, amount, image }) => {
@@ -29,7 +29,9 @@ const CartItem = ({ id, name, price, amount, image }) => {
                   return;
                 }
                 dispatch(decrement({ id }));
-                dispatch(getDiscounts());
+                if (amount % 3 === 0) {
+                  dispatch(removeDiscounts({ id }));
+                }
               }}
               size="27px"
               className="bg-white border-2 rounded-full "
@@ -39,7 +41,6 @@ const CartItem = ({ id, name, price, amount, image }) => {
             <AiOutlinePlus
               onClick={() => {
                 dispatch(increment({ id }));
-                dispatch(getDiscounts());
               }}
               size="27px"
               className="bg-white border-2 rounded-full "

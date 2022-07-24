@@ -61,7 +61,7 @@ const cartSlice = createSlice({
 
         //* if milk is one of 3's multiples, add a discount
         //? if milk is less than 3, remove the discount
-        else if (milk && milk.amount % 3 === 0) {
+        if (milk && milk.amount % 3 === 0) {
           let multiplyByDiscount = milk.amount / 3;
           state.discount.milk = multiplyByDiscount * 1.15;
         } else if (milk && milk.amount < 3) {
@@ -69,9 +69,14 @@ const cartSlice = createSlice({
         }
       }
     },
+    removeDiscounts: (state, { payload }) => {
+      if (payload.id == "2") {
+        state.discount.milk = state.discount.milk - 1.15;
+      }
+    },
   },
 });
 
-export const { getDiscounts, addToCart, removeItem, increment, decrement, calculateTotals } = cartSlice.actions;
+export const { getDiscounts, removeDiscounts, addToCart, removeItem, increment, decrement, calculateTotals } = cartSlice.actions;
 
 export default cartSlice.reducer;
