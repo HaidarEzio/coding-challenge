@@ -2,7 +2,7 @@ import Image from "next/image";
 import ReactStars from "react-rating-stars-component";
 import { FaStarHalfAlt, FaStar, FaRegStar } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { ProductContainer, ImageWrapper, button } from "./reusbaleComps.styles";
+import { ProductContainer, ImageWrapper, button } from "./reusableComps.styles";
 import { addToCart, getDiscounts } from "../../features/cartSlice";
 
 const Product = ({ id, name, description, price, image }) => {

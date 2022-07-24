@@ -1,11 +1,8 @@
 import { Header, Container } from "./styles";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import tw from "tailwind-styled-components";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import CartItem from "./reusableComps/cartItem.reusable.comp";
-import { discounting } from "../features/cartSlice";
-import { useEffect } from "react";
 
 const Cart = () => {
   const {
